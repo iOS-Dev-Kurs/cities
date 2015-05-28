@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cities View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CitiesViewController" customModule="Cities" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rng-7V-h5l">
+                                <rect key="frame" x="266" y="285" width="67" height="30"/>
+                                <state key="normal" title="city name">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jHj-Pm-zBw" kind="showDetail" identifier="showCityDetail" id="jWK-jA-KHd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54X-Dl-nAO">
+                                <rect key="frame" x="278" y="40" width="44" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Rng-7V-h5l" secondAttribute="centerX" id="XlY-O7-8I6"/>
+                            <constraint firstAttribute="centerX" secondItem="54X-Dl-nAO" secondAttribute="centerX" id="eaW-e4-EXr"/>
+                            <constraint firstAttribute="centerY" secondItem="Rng-7V-h5l" secondAttribute="centerY" id="jBD-rZ-4ck"/>
+                            <constraint firstItem="54X-Dl-nAO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="u2a-vj-WQe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityButton" destination="Rng-7V-h5l" id="0Q2-np-Ctx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--City Detail View Controller-->
+        <scene sceneID="NKh-Zq-DHv">
+            <objects>
+                <viewController id="jHj-Pm-zBw" customClass="CityDetailViewController" customModule="Cities" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2EP-4n-NEh"/>
+                        <viewControllerLayoutGuide type="bottom" id="I0j-kH-wrA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="POb-q4-IIO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91G-2d-loQ">
+                                <rect key="frame" x="261" y="40" width="77.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="aP9-iw-2KV">
+                                <rect key="frame" x="16" y="68" width="568" height="531.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3o-T8-lSD">
+                                <rect key="frame" x="16" y="35.5" width="35" height="29.5"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ITq-4k-RAI" kind="unwind" unwindAction="unwindToCities:" id="wHF-N4-I50"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aP9-iw-2KV" firstAttribute="leading" secondItem="POb-q4-IIO" secondAttribute="leadingMargin" id="50n-cb-vvo"/>
+                            <constraint firstAttribute="centerX" secondItem="91G-2d-loQ" secondAttribute="centerX" id="6V9-2L-RME"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aP9-iw-2KV" secondAttribute="trailing" id="9M1-gY-7XU"/>
+                            <constraint firstItem="C3o-T8-lSD" firstAttribute="leading" secondItem="POb-q4-IIO" secondAttribute="leadingMargin" id="9MN-q2-84D"/>
+                            <constraint firstItem="C3o-T8-lSD" firstAttribute="baseline" secondItem="91G-2d-loQ" secondAttribute="baseline" id="PV4-S0-Juv"/>
+                            <constraint firstItem="aP9-iw-2KV" firstAttribute="top" secondItem="91G-2d-loQ" secondAttribute="bottom" constant="8" symbolic="YES" id="VtG-dD-qVz"/>
+                            <constraint firstItem="I0j-kH-wrA" firstAttribute="top" secondItem="aP9-iw-2KV" secondAttribute="bottom" id="YRa-FU-gYx"/>
+                            <constraint firstItem="91G-2d-loQ" firstAttribute="top" secondItem="2EP-4n-NEh" secondAttribute="bottom" constant="20" id="jTo-7U-EWG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="aP9-iw-2KV" id="gNG-wf-6SA"/>
+                        <outlet property="nameLabel" destination="91G-2d-loQ" id="ES0-Ur-3FJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2g-dR-1V0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ITq-4k-RAI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="345"/>
         </scene>
     </scenes>
 </document>
