@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let melbourne = City(name: "Melbourne", image: UIImage(named: "melbourne"))
-        if let citiesViewController = window?.rootViewController as? CitiesViewController {
+        if let citiesViewController = (window?.rootViewController as? UINavigationController)?.topViewController as? CitiesViewController {
             citiesViewController.city = melbourne
         }
         return true
